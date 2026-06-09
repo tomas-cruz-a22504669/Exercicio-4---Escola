@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Estudantes</title>
+</head>
+<body>
+    <h1>Escola - Estudantes</h1>
+    <ul>
+        {% for estudante in estudantes %}
+        <li><strong>{{ estudante.nome }}</strong>
+            <ul>
+                {% for curso in estudante.cursos.all %}
+                <li>{{ curso.idioma }}</li>
+                {% empty %}
+                <li>Não frequenta nenhum curso.</li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
